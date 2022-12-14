@@ -12,6 +12,8 @@ public class Prices {
 
 	@ApiModelProperty(name = "subTotal",required = true,example = "$1.874.700", value = "El valor de esta propiedad corresponde al precio  de los Productos en el cart")
 	private String subTotal;
+	@ApiModelProperty(name = "deliveryMessage",required = true,example = "Envío gratis", value = "El corresponde al mensaje de envio de acuerdo a los productos en cart puede ser alguno de estos mensajes {Envío gratis,Envío,Envío al <b>email</b>,Servicio de instalación}")
+	private String deliveryMessage;
 	@ApiModelProperty(name = "deliveryCost",required = true,example = "$10", value = "El valor de esta propiedad corresponde al precio  del costo de envio")
 	private String deliveryCost;
 	@ApiModelProperty(name = "totalDiscounts",required = true,example = "$0", value = "El valor de esta propiedad corresponde al valor de los descuentos")
