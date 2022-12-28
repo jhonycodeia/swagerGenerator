@@ -12,6 +12,7 @@ import com.paymentchain.billing.dto.CartData;
 import com.paymentchain.billing.dto.InvoiceRequest;
 import com.paymentchain.billing.dto.InvoiceResponse;
 import com.paymentchain.billing.dto.CartItems;
+import com.paymentchain.billing.dto.CartItemsDataLayer;
 import com.paymentchain.billing.dto.Prices;
 import com.paymentchain.billing.entities.Invoice;
 import org.springframework.web.bind.annotation.RestController;
@@ -108,7 +109,7 @@ public class CartRestController {
 	        		+ "}\n</pre>")
 	        				 })
 	@RequestMapping(value = "/entryAsyn/execute/{actionCode:.*}", method = RequestMethod.POST)
-    public CartItems executeCartEntryAction(
+    public CartItemsDataLayer executeCartEntryAction(
     		@ApiParam(
     			    name =  "actionCode",    			    
     			    value = "Comando de operacion a ejecutar",
@@ -122,7 +123,7 @@ public class CartRestController {
     			    required = true)
     		@RequestParam("entryNumbers") final Long[] entryNumbers)
     {
-		return new CartItems();
+		return new CartItemsDataLayer();
     }
     
     @ApiOperation(value = "Retorna todos los productos dentro del carrito junto sus atributo y informacion del Cart", notes = "Este servicio se encarga de actualizar la cantidad de items por producto y eliminar en caso que se requiera si se envia un 0 en el campo quantity")
@@ -162,7 +163,7 @@ public class CartRestController {
         		+ "}\n</pre>")
         				 })
     @RequestMapping(value = "/updateAsyn", method = RequestMethod.POST)
-    public CartItems updateCartQuantities(
+    public CartItemsDataLayer updateCartQuantities(
     		@ApiParam(
     			    name =  "entryNumber",    			    
     			    value = "Este campo corresponde al numero identificador del producto",
@@ -176,7 +177,7 @@ public class CartRestController {
     			    required = true)
     		 @RequestParam("quantity")final long quantity)
     {
-    	return new CartItems();
+    	return new CartItemsDataLayer();
     }
 
     
@@ -416,7 +417,7 @@ public class CartRestController {
         		+ "}\n</pre>")})
    
     @RequestMapping(value = "add/product", method = RequestMethod.POST)
-	public CartItems addToCartAsyncProduct(
+	public CartItemsDataLayer addToCartAsyncProduct(
 			@ApiParam(
     			    name =  "productCodePost",    			    
     			    value = "Este campo corresponde al codigo del producto o ean",
@@ -447,7 +448,7 @@ public class CartRestController {
     			    value = "Este campo corresponde a la cantidad de unidades adicionar del producto",
     			    example = "71",
     			    required = false)@RequestParam(value ="qty",required = false) final long qty) {
-		return new CartItems();
+		return new CartItemsDataLayer();
 	}
     
     
@@ -477,7 +478,7 @@ public class CartRestController {
         		+ "}\n</pre>")})
    
     @RequestMapping(value = "add/installation", method = RequestMethod.POST)
-	public CartItems addToCartAsyncInstallation(
+	public CartItemsDataLayer addToCartAsyncInstallation(
 			@ApiParam(
     			    name =  "productCode",    			    
     			    value = "Este campo corresponde al codigo del producto o ean del producto A",
@@ -508,7 +509,7 @@ public class CartRestController {
     			    value = "Este campo corresponde codigo dane o el identificador de la ciudad para la instalacion",
     			    example = "50006",
     			    required = true)@RequestParam(value ="cityCode") final String cityCode) {
-		return new CartItems();
+		return new CartItemsDataLayer();
 	}
     
 
@@ -534,13 +535,13 @@ public class CartRestController {
         		+ "}\n</pre>")})
    
     @RequestMapping(value = "/extendedWarranty/updateAsync", method = RequestMethod.POST)
-	public CartItems entendedWarrantyUpdate(
+	public CartItemsDataLayer entendedWarrantyUpdate(
 			@ApiParam(
     			    name =  "entryNumber",    			    
     			    value = "Este campo corresponde al numero identificador del producto",
     			    example = "1",
     			    required = true)@RequestParam(value = "entryNumber") final String entryNumber) {
-		return new CartItems();
+		return new CartItemsDataLayer();
 	}
 
 @ApiOperation(value = "Retorna toda la informacion relacionada a los productos", notes = "Permite agregar la garantia extendida a productos que estan habilitados para ello")
@@ -567,7 +568,7 @@ public class CartRestController {
         		+ "}\n</pre>")})
    
     @RequestMapping(value = "/extendedWarranty/addAsync", method = RequestMethod.POST)
-	public CartItems entendedWarrantyAdd(
+	public CartItemsDataLayer entendedWarrantyAdd(
 			@ApiParam(
     			    name =  "associateProductCode",    			    
     			    value = "Este campo corresponde al codigo del producto",
@@ -593,7 +594,7 @@ public class CartRestController {
     			    value = "toggle que verifica que el producto tiene garantia extendida",
     			    example = "true",
     			    required = true)@RequestParam(value ="toggleStatus") final String toggleStatus) {
-		return new CartItems();
+		return new CartItemsDataLayer();
 	}
 }
 
