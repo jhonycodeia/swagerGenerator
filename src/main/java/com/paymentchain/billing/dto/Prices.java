@@ -24,6 +24,6 @@ public class Prices {
 	private String bonoValue;
 	@ApiModelProperty(name = "totalPrice",required = true,example = "$1.874.700", value = "El valor de esta propiedad corresponde al precio  de los Productos con descuentos y costos de envio ")
 	private String totalPrice;
-	@ApiModelProperty(name = "priceDiscount",required = false, value = "Lista de priceDiscount")	
-	private List<PriceDiscount> priceDiscount;
+	@ApiModelProperty(name = "discounts",required = false, value = "Lista de priceDiscount")	
+	private List<PriceDiscount> discounts;
 }
